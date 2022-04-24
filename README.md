@@ -138,15 +138,18 @@
     2. #### Install `vive_ros` package in the catkin_ws
        ```sh 
        $ cd ~/catkin_ws/src
-       $ git clone https://github.com/JOiiNT-LAB/vive_ros.git
-       $ cd ..
-       $ catkin_make
+       $ git clone https://github.com/Kanazawanaoaki/vive_ros.git
+       $ cd vive_ros
+       $ git checkout melodic-kanazawa-devel
+       $ cd ~/catkin_ws/
+       $ catkin build
        ```
     3. #### Add rules for the Vive devices:
        ```sh 
-       $ cd ~/catkin_ws/src/vive_ros
+       $ source ~/catkin_ws/devel/setup.bash
+       $ roscd vive_ros
        $ sudo cp ./60-HTC-Vive-perms.rules /etc/udev/rules.d
-       $ sudo udevadm --reload-rules && sudo udevadm trigger
+       $ sudo udevadm control --reload-rules && sudo udevadm trigger
        ```               
 - ### Steam and SteamVR installation:
     1. #### Download [Steam](https://store.steampowered.com) latest version. You should get the file steam_latest.deb in your ~/Downloads folder
